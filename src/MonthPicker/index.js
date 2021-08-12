@@ -61,8 +61,8 @@ class MonthPicker extends React.PureComponent {
       <View
         style={[
           isDisabled === true && { flex: 1, alignItems: 'center' },
-          styles.monthStyle,
           this.getSelectedBackgroundColor(month),
+          styles.monthStyle,
         ]}
       >
         <Text
@@ -151,8 +151,8 @@ class MonthPicker extends React.PureComponent {
         style={[
           styles.horizontalFlexViewStyle,
           {
-            borderBottomColor: this.props.seperatorColor,
-            borderBottomWidth: this.props.seperatorHeight,
+            borderBottomColor: this.props.separatorColor,
+            borderBottomWidth: this.props.separatorHeight,
             alignSelf: 'center',
             height: 64,
           },
@@ -163,7 +163,7 @@ class MonthPicker extends React.PureComponent {
             ? (
               this.props.prevIcon
             ) : (
-              <Text style={selectedYear <= minYear && this.props.yearDisabledStyle}>
+              <Text style={selectedYear <= minYear ? this.props.yearDisabledStyle : this.props.yearEnabledStyle}>
                 {this.props.prevText}
               </Text>
             )}
@@ -178,7 +178,7 @@ class MonthPicker extends React.PureComponent {
             ? (
               this.props.nextIcon
             ) : (
-              <Text style={selectedYear >= maxYear && this.props.yearDisabledStyle}>
+              <Text style={selectedYear >= maxYear ? this.props.yearDisabledStyle : this.props.yearEnabledStyle}>
                 {this.props.nextText}
               </Text>
             )}
@@ -241,8 +241,8 @@ MonthPicker.defaultProps = {
   minDate: moment('01-01-1900', 'DD-MM-YYYY'),
   selectedBackgroundColor: '#000',
   selectedMonthTextStyle: { color: '#fff' },
-  seperatorHeight: 1,
-  seperatorColor: '#b6c3cb',
+  separatorHeight: 1,
+  separatorColor: '#b6c3cb',
   nextIcon: null,
   prevIcon: null,
   nextText: 'Next',
@@ -259,6 +259,7 @@ MonthPicker.defaultProps = {
   onYearChange: () => { },
   monthDisabledStyle: { color: '#00000050' },
   yearDisabledStyle: { color: '#00000050' },
+  yearEnabledStyle: { color: '#000000' },
   localeLanguage: 'en',
   localeSettings: {},
   swipable: false,
@@ -274,8 +275,8 @@ MonthPicker.propTypes = {
   minDate: PropTypes.any,
   selectedBackgroundColor: PropTypes.string,
   selectedMonthStyle: PropTypes.any,
-  seperatorColor: PropTypes.string,
-  seperatorHeight: PropTypes.number,
+  separatorColor: PropTypes.string,
+  separatorHeight: PropTypes.number,
   nextIcon: PropTypes.any,
   prevIcon: PropTypes.any,
   nextText: PropTypes.string,

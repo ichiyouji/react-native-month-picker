@@ -7,11 +7,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   monthStyle: {
-    height: 40,
-    width: 40,
+    height: 42,
+    width: 42,
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'transparent',
   },
   headerStyle: {
     height: 64,
